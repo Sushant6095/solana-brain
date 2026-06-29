@@ -1,0 +1,23 @@
+# Secrets — never commit keys or RPC/provider credentials
+.env
+.env.*
+*.key
+*.keypair
+*-keypair.json
+id.json
+
+# Node
+node_modules/
+dist/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Working data
+/scratch/
+/out/
