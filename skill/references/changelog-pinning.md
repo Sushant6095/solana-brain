@@ -5,7 +5,7 @@ description: How solana-brain is versioned, what's date-sensitive, and how to ke
 
 # Versioning & Maintenance Cadence
 
-`solana-brain` carries a semver (`0.1.0`) for the **router/orchestration logic** and a calendar pin
+`solana-brain` carries a semver (`0.2.0`) for the **router/orchestration logic** and a calendar pin
 (`2026-06`) for the **fast-moving facts** its clusters reference. The router changes rarely; the
 ecosystem underneath it changes constantly.
 
@@ -35,6 +35,10 @@ ecosystem underneath it changes constantly.
 
 ## Change log
 
+- `0.2.0` (`2026-06`) — Institutional memory: recall→record bookends the brain loop; per-project
+  `.solana-brain/` store (MEMORY.md, profile.md, decisions/) with `/recall` + `/remember`; key-safe,
+  never overwritten on re-install. npm (`npx solana-brain`) and Homebrew install channels. Premium,
+  gracefully-degrading installer (gradient banner, live verification, memory init).
 - `0.1.0` (`2026-06`) — Initial brain: 5 clusters (build/ship/secure/grow/operate), RESOLVER routing,
   orchestration playbooks (0→1, mainnet, token launch, raise, incident), ecosystem delegation map,
   one-command install + brain-first protocol.

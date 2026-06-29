@@ -1,12 +1,17 @@
 {
   "name": "solana-brain",
-  "version": "0.1.0",
-  "description": "The brain for building and operating an entire Solana company — one installable skill that routes across five clusters (BUILD, SHIP, SECURE, GROW, OPERATE). Read-only / key-safe.",
+  "version": "0.2.0",
+  "description": "The brain for building and operating an entire Solana company — one installable skill that routes across five clusters (BUILD, SHIP, SECURE, GROW, OPERATE) and keeps institutional memory of every decision. Read-only / key-safe.",
   "license": "MIT",
+  "type": "module",
   "bin": {
-    "solana-brain": "install.sh"
+    "solana-brain": "bin/solana-brain.mjs"
+  },
+  "engines": {
+    "node": ">=16"
   },
   "files": [
+    "bin/",
     "skill/",
     "agents/",
     "commands/",
@@ -25,18 +30,23 @@
     "claude",
     "claude-code",
     "codex",
+    "cursor",
     "agent-skill",
     "skill",
     "brain",
+    "memory",
     "router",
     "web3"
   ],
   "homepage": "https://github.com/Sushant6095/solana-brain",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sushant6095/solana-brain"
+    "url": "git+https://github.com/Sushant6095/solana-brain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Sushant6095/solana-brain/issues"
   },
   "scripts": {
-    "postinstall": "true"
+    "test": "bash -n install.sh && node --check bin/solana-brain.mjs && echo ok"
   }
 }

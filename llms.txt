@@ -2,12 +2,13 @@
 
 > The brain for building and operating an entire Solana company. One installable skill that
 > classifies any request, routes it to one of five clusters, orchestrates cross-functional
-> workflows with gates, and delegates depth to ecosystem skills. Read-only / key-safe.
+> workflows with gates, keeps institutional memory of every decision, and delegates depth to
+> ecosystem skills. Read-only / key-safe.
 
-Version: 0.1.0 (current as of 2026-06). License: MIT. Targets: Claude Code, Codex, Cursor.
+Version: 0.2.0 (current as of 2026-06). License: MIT. Targets: Claude Code, Codex, Cursor.
 
 ## Entry
-- [skill/SKILL.md](skill/SKILL.md): the brain — intake → classify → route → orchestrate → verify.
+- [skill/SKILL.md](skill/SKILL.md): the brain — recall → classify → route → orchestrate → verify → record.
 - [skill/RESOLVER.md](skill/RESOLVER.md): intent → cluster routing table (read to classify).
 
 ## Clusters
@@ -21,18 +22,26 @@ Version: 0.1.0 (current as of 2026-06). License: MIT. Targets: Claude Code, Code
 - [skill/references/orchestration.md](skill/references/orchestration.md): gated multi-cluster playbooks (0→1, mainnet, token launch, raise, incident).
 - [skill/references/ecosystem-map.md](skill/references/ecosystem-map.md): which specialist skill each cluster delegates to.
 - [skill/references/company-lifecycle.md](skill/references/company-lifecycle.md): idea→devnet→mainnet→scale; needs per stage.
+- [skill/references/memory.md](skill/references/memory.md): institutional memory — recall before, record after; key-safe; lives at .solana-brain/.
 - [skill/references/accuracy-and-safety.md](skill/references/accuracy-and-safety.md): rules of engagement.
 - [skill/references/changelog-pinning.md](skill/references/changelog-pinning.md): versioning + maintenance.
+
+## Memory (per project, at repo root — written by the brain)
+- `.solana-brain/MEMORY.md`: snapshot + decisions index (recall reads this first).
+- `.solana-brain/profile.md`: durable company facts. `.solana-brain/decisions/`: ADR-style records.
+- Seed template: [skill/memory-template/](skill/memory-template/). Key-safe — public data only.
 
 ## Agents
 - [agents/chief-of-staff.md](agents/chief-of-staff.md) (orchestrator) + build/ship/secure/grow/operate-lead.
 
 ## Commands
 - [commands/brain.md](commands/brain.md), company-setup, ship-it, launch-token, raise, incident.
+- [commands/recall.md](commands/recall.md) (surface memory), [commands/remember.md](commands/remember.md) (record a decision).
 
 ## Rules
 - [rules/brain-first.md](rules/brain-first.md), [rules/safety-and-keys.md](rules/safety-and-keys.md).
 
 ## Install
 - One-liner: `curl -fsSL https://raw.githubusercontent.com/Sushant6095/solana-brain/main/install.sh | bash`
-- Agent flow: [INSTALL_FOR_AGENTS.md](INSTALL_FOR_AGENTS.md). Also npx/bun/brew (see README.md).
+- npm: `npx solana-brain` (or `npm i -g solana-brain`). Homebrew: `brew install Sushant6095/tap/solana-brain`.
+- Agent flow: [INSTALL_FOR_AGENTS.md](INSTALL_FOR_AGENTS.md). Premium onboarding UI; degrades over curl|bash / NO_COLOR.

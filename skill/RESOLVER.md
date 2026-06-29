@@ -8,6 +8,9 @@ description: The brain's classification table. Map any Solana company request to
 This is how the brain **classifies**. Read it to decide which cluster(s) a request belongs to, then
 open only those files. Multi-cluster routing is the norm — most real goals span several.
 
+> **Recall first.** Before classifying, read `.solana-brain/MEMORY.md` ([references/memory.md](references/memory.md))
+> so routing honors prior decisions and gates already cleared. After verifying, record what changed.
+
 ## Classify by intent
 
 | Signal / phrasing | Primary cluster | Also touches |

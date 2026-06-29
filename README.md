@@ -12,8 +12,9 @@ cross-functional work with gates, and **delegates depth to the best existing ski
 
 ## What it is (and what it isn't)
 
-- **It is** a chief-of-staff: intake → classify → route → orchestrate → verify. The value is
-  knowing *what to do next* across the whole company and *not skipping gates*.
+- **It is** a chief-of-staff: recall → classify → route → orchestrate → verify → record. The value is
+  knowing *what to do next* across the whole company, *not skipping gates*, and *remembering every
+  decision* so it's never re-litigated.
 - **It isn't** a re-implementation of the ecosystem, and it isn't a dev-config kit. It **routes to**
   specialists (sendai, Helius, Jupiter, Metaplex, Trail of Bits, `crypto-legal`, `solana-accounting`,
   `solana-client-layer`) instead of duplicating them — so it stays small and current.
@@ -45,19 +46,25 @@ curl -fsSL https://raw.githubusercontent.com/Sushant6095/solana-brain/main/insta
 Other paths:
 
 ```bash
-# bun / npx (from the repo)
-bun install -g github:Sushant6095/solana-brain   # then: solana-brain   (or: solana-brain --user)
-npx solana-brain                                 # installs into the current repo
+# npm — run without installing, or install the command globally
+npx solana-brain                       # onboard into the current repo
+npx solana-brain --user                # onboard user-wide (~/.claude)
+npm install -g solana-brain            # then: solana-brain   (any flag works)
 
 # Homebrew (via a tap)
 brew install Sushant6095/tap/solana-brain && solana-brain
+brew install --HEAD Sushant6095/tap/solana-brain   # bleeding edge from main
 
 # Let your agent do it (Claude Code / Codex / Cursor)
 #   point it at: https://raw.githubusercontent.com/Sushant6095/solana-brain/main/INSTALL_FOR_AGENTS.md
 ```
 
-No build step, no runtime deps. Supply your own RPC/provider keys by env var — the brain never
-bundles or requests keys.
+Every channel runs the same installer — a paced, branded onboarding (Solana-gradient banner, live
+verification, your executive team reporting for duty) that degrades cleanly over `curl | bash`,
+`NO_COLOR`, and non-UTF-8 terminals. Flags: `--user`, `--project DIR`, `-y`, `--fast`, `--plain`.
+
+No build step, no runtime deps (npm path needs Node ≥16 + bash). Supply your own RPC/provider keys by
+env var — the brain never bundles or requests keys.
 
 ## Use it
 
@@ -70,31 +77,54 @@ Just talk to the brain — it figures out the cluster(s):
 /launch-token governance token, US + India users
 /raise hackathon: Colosseum
 /incident our claim endpoint is draining wallets
+/recall where were we — what have we already decided
+/remember chose Cayman foundation + DE C-corp for the token entity, per counsel
 ```
 
 …or describe a goal in plain language and the `chief-of-staff` returns a gated, multi-cluster plan.
+It **recalls** the project's memory before routing and **records** every decision after verifying.
+
+## 🧠 Institutional memory
+
+A chief-of-staff who forgets last week is useless. solana-brain keeps **per-project memory** so every
+prompt, decision, and gate is remembered across sessions — and never re-litigated.
+
+- **Recall before routing, record after verifying.** The brain loop becomes
+  `recall → classify → route → orchestrate → verify → record`.
+- **Lives at `.solana-brain/`** in your repo (git-trackable, tool-agnostic — not buried in `.claude/`):
+  a skimmable `MEMORY.md` snapshot, durable `profile.md` facts, and ADR-style `decisions/`.
+- **No slop.** Entries are factual, dated, and specific; decisions are superseded, never silently
+  overwritten — the installer **never** wipes an existing `.solana-brain/`.
+- **Key-safe.** Public keys, program IDs, decisions, and rationale only — never a private key or seed.
+
+Surface it with [`/recall`](commands/recall.md); write it with [`/remember`](commands/remember.md).
+Full protocol: [`skill/references/memory.md`](skill/references/memory.md).
 
 ## Structure
 
 ```
 solana-brain/
 ├── skill/
-│   ├── SKILL.md                 # the brain: intake → classify → route → orchestrate → verify
+│   ├── SKILL.md                 # the brain: recall → classify → route → orchestrate → verify → record
 │   ├── RESOLVER.md              # intent → cluster routing table
 │   ├── clusters/                # build · ship · secure · grow · operate
-│   └── references/              # orchestration · ecosystem-map · company-lifecycle · accuracy-and-safety · changelog-pinning
+│   ├── references/              # orchestration · ecosystem-map · company-lifecycle · memory · accuracy-and-safety · changelog-pinning
+│   └── memory-template/         # seed for a project's .solana-brain/ (MEMORY.md · profile.md · decisions/)
 ├── agents/                      # chief-of-staff (orchestrator) + 5 cluster leads
-├── commands/                    # /brain /company-setup /ship-it /launch-token /raise /incident
+├── commands/                    # /brain /company-setup /ship-it /launch-token /raise /incident /recall /remember
 ├── rules/                       # brain-first · safety-and-keys
-├── install.sh                   # one-command installer (curl|bash, npx/bun, run-from-clone)
+├── bin/solana-brain.mjs         # npm entry point (runs install.sh; cross-platform)
+├── install.sh                   # premium installer (curl|bash, npx, brew, run-from-clone)
 ├── INSTALL_FOR_AGENTS.md        # agent-driven install flow
-├── solana-brain.rb              # Homebrew formula template
+├── solana-brain.rb              # Homebrew formula
+├── package.json                 # npm metadata + bin
 ├── CLAUDE.md / AGENTS.md        # agent entry points + brain-first protocol
 ├── llms.txt                     # machine-readable doc map
 └── LICENSE                      # MIT
 ```
 
 Progressive, token-efficient: `SKILL.md` routes; clusters and references load only when needed.
+Per-project memory is written to `.solana-brain/` at your repo root, separate from the read-only skill.
 
 ## How it relates to the Solana AI Kit
 
@@ -106,8 +136,8 @@ cross-functional workflows. It delegates to the kit's skills rather than replaci
 
 ## Versioning
 
-Router/orchestration logic is semver (`0.1.0`); fast-moving facts the clusters reference are
-calendar-pinned `2026-06`. See [`skill/references/changelog-pinning.md`](skill/references/changelog-pinning.md).
+Router/orchestration logic is semver (`0.2.0` — adds institutional memory + npm/brew install); fast-moving
+facts the clusters reference are calendar-pinned `2026-06`. See [`skill/references/changelog-pinning.md`](skill/references/changelog-pinning.md).
 
 ## Contributing
 

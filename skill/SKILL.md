@@ -18,10 +18,11 @@ compatibility:
   - codex
   - cursor
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   release: "2026-06"
   model: brain-router
   clusters: [build, ship, secure, grow, operate]
+  memory: true
   read-only-default: true
   last-stack-review: "2026-06-15"
 ---
@@ -59,9 +60,12 @@ default first stop for any Solana question and routes to the right depth.
 ## How the brain works (the loop)
 
 ```
-intake  →  classify  →  route  →  orchestrate  →  hand off  →  verify
+recall  →  intake  →  classify  →  route  →  orchestrate  →  hand off  →  verify  →  record
 ```
 
+0. **Recall.** Read the project's memory first — `.solana-brain/MEMORY.md`
+   ([memory.md](references/memory.md)). Honor prior decisions and gates already cleared; surface the
+   relevant one to the user. A fresh repo with no memory is fine — note it and move on.
 1. **Intake.** Read the request and the repo context. Identify the stage of the company
    ([company-lifecycle.md](references/company-lifecycle.md)) and ask at most 1–2 clarifying questions
    only if routing is genuinely ambiguous.
@@ -76,6 +80,9 @@ intake  →  classify  →  route  →  orchestrate  →  hand off  →  verify
    multi-cluster work) and the relevant command.
 6. **Verify.** Every cluster ends with a check (tests, simulation, land rate, a counsel/CPA review
    flag, a launch checklist). The brain does not call a job done without its cluster's verification.
+7. **Record.** Write what changed back to memory ([memory.md](references/memory.md)) — update
+   `.solana-brain/MEMORY.md`, and for consequential/gated/irreversible choices add a decision record.
+   No slop, key-safe — public data, decisions, and rationale only.
 
 ## Routing — the fast path
 
@@ -112,6 +119,8 @@ Use [RESOLVER.md](RESOLVER.md) for the full intent→cluster table. Quick signal
 | [`/launch-token`](../commands/launch-token.md) | BUILD + SECURE + GROW + OPERATE | End-to-end token launch with gates |
 | [`/raise`](../commands/raise.md) | GROW + OPERATE | Fundraising / hackathon / grant prep |
 | [`/incident`](../commands/incident.md) | SECURE + SHIP | Incident response runbook |
+| [`/recall`](../commands/recall.md) | any | Surface institutional memory before acting |
+| [`/remember`](../commands/remember.md) | any | Record a decision/fact to institutional memory |
 
 ## Progressive Disclosure Map
 
@@ -124,8 +133,15 @@ skill/SKILL.md (the brain — you are here)
         ├── orchestration.md           ← cross-functional playbooks (multi-cluster goals)
         ├── ecosystem-map.md           ← which existing skills each cluster delegates to
         ├── company-lifecycle.md       ← idea → devnet → mainnet → scale; needs per stage
+        ├── memory.md                  ← institutional memory: recall before, record after
         ├── accuracy-and-safety.md     ← read-only/key-safe, cite primary, current-stack, not advice
         └── changelog-pinning.md       ← maintenance cadence
+
+Per-project memory (written by the brain, lives at the repo root, not in .claude/):
+  .solana-brain/
+    ├── MEMORY.md     ← snapshot + decisions index (recall reads this first)
+    ├── profile.md    ← durable company facts
+    └── decisions/    ← one ADR-style record per consequential decision
 ```
 
 Load only the cluster/reference the current request needs.
@@ -133,8 +149,18 @@ Load only the cluster/reference the current request needs.
 ## Brain-first protocol
 
 Once installed, the agent **consults solana-brain before ad-hoc action** on any Solana task:
-classify → route → use the cluster's guidance/skill → verify. The installer appends this protocol to
-the project's `CLAUDE.md`/`AGENTS.md`. See [`rules/brain-first.md`](../rules/brain-first.md).
+recall → classify → route → use the cluster's guidance/skill → verify → record. The installer appends
+this protocol to the project's `CLAUDE.md`/`AGENTS.md`. See [`rules/brain-first.md`](../rules/brain-first.md).
+
+## Memory — the company's long-term brain
+
+The brain **remembers**. It keeps per-project institutional memory at `.solana-brain/` (repo root,
+git-trackable, separate from the read-only skill): a `MEMORY.md` snapshot, durable `profile.md` facts,
+and ADR-style `decisions/`. Every session **recalls before routing** and **records after verifying**,
+so decisions, gates, and rationale survive across sessions and never get re-litigated. Use
+[`/recall`](../commands/recall.md) to surface it and [`/remember`](../commands/remember.md) to write it.
+Key-safe: public data, decisions, and rationale only — never a private key. See
+[memory.md](references/memory.md).
 
 ## Guardrails
 
@@ -148,8 +174,10 @@ the project's `CLAUDE.md`/`AGENTS.md`. See [`rules/brain-first.md`](../rules/bra
 4. **Cite primary sources** and **pin the date** ("current as of 2026-06") for fast-moving specifics.
 5. **Multi-cluster honesty.** Surface every cluster a goal touches; don't ship a token plan that
    ignores the legal/tax cluster.
+6. **Remember, don't repeat.** Recall memory before deciding and record after; never re-litigate a
+   settled decision or silently contradict a recorded one. Memory is key-safe — no secrets, ever.
 
 ---
 
-*solana-brain v0.1.0 — current as of 2026-06. Read-only / key-safe by default. An orchestrator that
-routes to the ecosystem; verify time-sensitive specifics against primary docs.*
+*solana-brain v0.2.0 — current as of 2026-06. Read-only / key-safe by default. An orchestrator that
+routes to the ecosystem and remembers every decision; verify time-sensitive specifics against primary docs.*

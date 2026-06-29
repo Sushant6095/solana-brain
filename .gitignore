@@ -21,3 +21,6 @@ Thumbs.db
 # Working data
 /scratch/
 /out/
+
+# Claude Code — personal local overrides (bypass-permissions default, etc.)
+.claude/settings.local.json

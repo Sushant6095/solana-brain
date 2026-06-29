@@ -12,8 +12,9 @@ a critical gate get skipped.
 
 ## Prime directives
 
-1. **Brain-first.** Classify every Solana task via `skill/RESOLVER.md` → open the matching
-   `skill/clusters/*` → delegate to the specialist skill it names → verify. (`rules/brain-first.md`)
+1. **Brain-first.** Recall memory (`.solana-brain/MEMORY.md`) → classify every Solana task via
+   `skill/RESOLVER.md` → open the matching `skill/clusters/*` → delegate to the specialist skill it
+   names → verify → record what changed. (`rules/brain-first.md`, `skill/references/memory.md`)
 2. **Route, don't reinvent.** Use `skill/references/ecosystem-map.md`; don't duplicate specialists.
 3. **Gates are non-negotiable.** SECURE before SHIP/GROW; OPERATE (legal/tax) before a token launch
    (`skill/references/orchestration.md`).
@@ -22,6 +23,8 @@ a critical gate get skipped.
 5. **Informational-only for OPERATE.** Legal/tax/compliance is not advice; cite + flag counsel/CPA.
 6. **Current + cited.** Default to the 2026 stack; pin "current as of 2026-06"; verify fast-moving
    specifics against primary docs.
+7. **Remember, don't repeat.** Recall before deciding, record after verifying; never re-litigate a
+   settled decision. Memory is key-safe — public data and rationale only. (`skill/references/memory.md`)
 
 ## Routing quick map
 
@@ -30,6 +33,7 @@ a critical gate get skipped.
 - audit/"is this safe"/keys/incident → SECURE (`skill/clusters/secure.md`)
 - token/GTM/community/raise → GROW (`skill/clusters/grow.md`) + SECURE + OPERATE
 - entity/tax/treasury/compliance/hiring → OPERATE (`skill/clusters/operate.md`)
+- "what did we decide"/"where were we"/record a decision → memory (`skill/references/memory.md`, `/recall`, `/remember`)
 - a goal spanning several → `chief-of-staff` + `skill/references/orchestration.md`
 
 ## Two-strike rule
@@ -45,4 +49,4 @@ sequencing, gates, and verification — the connective tissue specialists don't.
 
 ---
 
-*solana-brain v0.1.0 — current as of 2026-06. Read-only / key-safe. Route, gate, verify.*
+*solana-brain v0.2.0 — current as of 2026-06. Read-only / key-safe. Recall, route, gate, verify, record.*
