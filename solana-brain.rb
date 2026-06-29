@@ -13,7 +13,7 @@ class SolanaBrain < Formula
   desc "Brain + memory for building & operating a Solana company (BUILD/SHIP/SECURE/GROW/OPERATE)"
   homepage "https://github.com/Sushant6095/solana-brain"
   url "https://github.com/Sushant6095/solana-brain/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "<fill-in-release-tarball-sha256>"
+  sha256 "1a93f759a7ad6036d313c70d0da70af0cf8953c139104b3d733f1ea149db0979"
   license "MIT"
   version "0.2.0"
   head "https://github.com/Sushant6095/solana-brain.git", branch: "main"
