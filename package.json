@@ -1,0 +1,42 @@
+{
+  "name": "solana-brain",
+  "version": "0.1.0",
+  "description": "The brain for building and operating an entire Solana company — one installable skill that routes across five clusters (BUILD, SHIP, SECURE, GROW, OPERATE). Read-only / key-safe.",
+  "license": "MIT",
+  "bin": {
+    "solana-brain": "install.sh"
+  },
+  "files": [
+    "skill/",
+    "agents/",
+    "commands/",
+    "rules/",
+    "install.sh",
+    "INSTALL_FOR_AGENTS.md",
+    "CLAUDE.md",
+    "AGENTS.md",
+    "llms.txt",
+    "VERSION",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "solana",
+    "claude",
+    "claude-code",
+    "codex",
+    "agent-skill",
+    "skill",
+    "brain",
+    "router",
+    "web3"
+  ],
+  "homepage": "https://github.com/Sushant6095/solana-brain",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sushant6095/solana-brain"
+  },
+  "scripts": {
+    "postinstall": "true"
+  }
+}
