@@ -36,6 +36,35 @@ living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets
 
 ---
 
+## Quick start
+
+Run it instantly, no install needed — it onboards the repo you're standing in:
+
+```bash
+npx solana-brain
+```
+
+That drops the brain into `./.claude` and appends a brain-first protocol to `CLAUDE.md` in ~10 seconds.
+Open your agent and say `/brain what should we do next` — or just describe a goal in plain language.
+
+Install it for a permanent `solana-brain` command:
+
+```bash
+npm install -g solana-brain
+```
+
+Also runs via `bunx solana-brain`, or `brew install Sushant6095/tap/solana-brain` on macOS. Prefer zero
+dependencies (no Node)? Use the curl installer:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Sushant6095/solana-brain/main/install.sh | bash
+```
+
+Requires Node.js 16+ and bash for the npm path. Add `--user` to install into `~/.claude` for every
+project. Non-destructive — it never touches your source and never wipes an existing `.solana-brain/`.
+
+---
+
 ## ✅ Live on every channel
 
 > **All three install paths are published and verified end-to-end** against real infrastructure — the npm registry, a tagged GitHub release, and a Homebrew tap.
@@ -58,6 +87,7 @@ living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets
 
 ## Contents
 
+- [Quick start](#quick-start)
 - [✅ Live on every channel](#-live-on-every-channel)
 
 - [The problem](#the-problem)
@@ -143,17 +173,23 @@ Same prompt — *"launch our token next month"* — to the **same model**, befor
 
 ## Works with any LLM or agent
 
-solana-brain is **plain markdown** — a routing protocol, five cluster playbooks, and a memory format.
-No binary, no runtime, no SDK lock-in. That makes it **model- and tool-agnostic**:
+solana-brain is **plain markdown** — a skill (`SKILL.md` + clusters + references), six agents, ten
+commands, and a memory format. **No binary, no MCP server, no per-agent plugins or hooks** — and that's
+the point: it's model- and tool-agnostic, and the same `.solana-brain/` memory is readable by every agent
+(and by you, and by Obsidian).
 
-- **Any agent that reads `CLAUDE.md` / `AGENTS.md` / skills** — Claude Code, Codex, Cursor, Cline,
-  Windsurf, Gemini CLI, and more. The installer wires `.claude/` and appends the brain-first protocol
-  automatically.
-- **Any raw LLM** — point the model at [`skill/SKILL.md`](skill/SKILL.md) as context and it routes the
-  same way, whether that's Claude, GPT, Gemini, or a local Llama.
-- **The memory is just markdown** — readable by you, your team, your agent, and Obsidian alike.
+| Tier | Agents | How solana-brain loads |
+|---|---|---|
+| **Native — auto-wired** | Claude Code | `.claude/skills/solana-brain/` + `/commands` + `agents/` + the brain-first block in `CLAUDE.md` — the installer sets all of it up |
+| **Convention files** | Codex · Cursor · Cline · Windsurf · Roo Code · Kilo Code · Gemini CLI · GitHub Copilot CLI · Aider · Goose | reads the brain-first protocol the installer appends to `CLAUDE.md` / `AGENTS.md` (or point it at `SKILL.md` if your agent uses a different rules file) |
+| **Any other LLM** | GPT · Gemini · Llama · Claude Desktop · Warp · … | point the model at [`skill/SKILL.md`](skill/SKILL.md) as context — it routes the same way |
 
-**One brain, any model.** Swap LLMs whenever you like — your repo's brain and its decision graph stay put.
+**One brain, any model.** Swap LLMs whenever you like — your repo's brain and its decision graph stay
+put. There's no MCP server or hooks to misconfigure; it's just markdown the agent reads.
+
+> Honest scope: solana-brain doesn't ship plugins, an MCP server, or hooks (unlike some memory tools).
+> It's a **skill** — markdown that any agent reads. The only "native" wiring is for Claude Code; everywhere
+> else it rides `CLAUDE.md`/`AGENTS.md` or a one-line "read `SKILL.md`" pointer.
 
 ---
 
@@ -450,6 +486,8 @@ map in [`skill/references/ecosystem-map.md`](skill/references/ecosystem-map.md).
 | [`/incident`](commands/incident.md) | SECURE + SHIP | Incident-response runbook |
 | [`/recall`](commands/recall.md) | any | Surface institutional memory before acting |
 | [`/remember`](commands/remember.md) | any | Record a decision/fact to institutional memory |
+| [`/explain`](commands/explain.md) | any (post-build) | Teach what you built — why/tradeoffs/scale/principles (Solana/Rust/Web3) |
+| [`/evolve`](commands/evolve.md) | any | Capture a cited, grounded learning so the brain sharpens — no hallucination |
 
 ---
 
