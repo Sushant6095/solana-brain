@@ -179,7 +179,7 @@ the point: it's model- and tool-agnostic, and the same `.solana-brain/` memory i
 (and by you, and by Obsidian).
 
 <p align="center">
-  <img src="assets/works-with.svg" alt="Works with every agent — Claude Code natively; Codex, Cursor, Cline, Windsurf, Roo Code, Kilo Code, Gemini CLI, Copilot CLI, Aider, Goose via CLAUDE.md/AGENTS.md; any other LLM (GPT, Gemini, Llama, Claude Desktop, Warp) by pointing it at SKILL.md" width="900">
+  <img src="assets/works-with.svg" alt="Works with every agent — Claude Code natively; Codex, Cursor, Copilot CLI, Gemini CLI, Windsurf, Cline, Roo Code, Aider via CLAUDE.md/AGENTS.md; Claude Desktop, Warp, and local LLMs via Ollama by pointing at SKILL.md" width="900">
 </p>
 
 **One brain, any model.** Swap LLMs whenever you like — your repo's brain and its decision graph stay
