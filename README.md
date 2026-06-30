@@ -62,6 +62,8 @@ living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets
 
 - [The problem](#the-problem)
 - [Why every Solana dev & founder needs it](#why-every-solana-dev--founder-needs-it)
+- [Before & after: how your agent changes](#before--after-how-your-agent-changes)
+- [Works with any LLM or agent](#works-with-any-llm-or-agent)
 - [⚡ Drop it into your repo — new project _or_ mid-flight](#-drop-it-into-your-repo--new-project-or-mid-flight)
 - [Install](#install)
 - [What lands in your repo](#what-lands-in-your-repo)
@@ -117,6 +119,40 @@ solana-brain is the layer that fixes it:
 
 If you build or operate anything on Solana with a coding agent, this is the layer that makes that agent
 **trustworthy over time** — and it installs in one command.
+
+---
+
+## Before & after: how your agent changes
+
+Same prompt — *"launch our token next month"* — to the **same model**, before and after installing the brain:
+
+<p align="center">
+  <img src="assets/before-after.svg" alt="Before: a plain LLM gives a generic, amnesiac, ungated answer. After: LLM + solana-brain recalls prior decisions, routes across clusters, enforces the security gate, delegates to specialists, and records the decision." width="880">
+</p>
+
+| | 🤖 Plain LLM | 🧠 LLM + solana-brain |
+|---|---|---|
+| **Memory** | Forgets between sessions | Recalls every prior decision from `.solana-brain/` |
+| **Answer** | One generic checklist | Classified into the right cluster(s) |
+| **Gates** | Skips audit / legal | SECURE before ship · OPERATE before launch — *enforced* |
+| **Depth** | Reinvents, often wrong | Delegates to specialists (Helius · Jupiter · Trail of Bits · …) |
+| **Over time** | Same slop, every day | **Compounds** — sharper every session |
+
+---
+
+## Works with any LLM or agent
+
+solana-brain is **plain markdown** — a routing protocol, five cluster playbooks, and a memory format.
+No binary, no runtime, no SDK lock-in. That makes it **model- and tool-agnostic**:
+
+- **Any agent that reads `CLAUDE.md` / `AGENTS.md` / skills** — Claude Code, Codex, Cursor, Cline,
+  Windsurf, Gemini CLI, and more. The installer wires `.claude/` and appends the brain-first protocol
+  automatically.
+- **Any raw LLM** — point the model at [`skill/SKILL.md`](skill/SKILL.md) as context and it routes the
+  same way, whether that's Claude, GPT, Gemini, or a local Llama.
+- **The memory is just markdown** — readable by you, your team, your agent, and Obsidian alike.
+
+**One brain, any model.** Swap LLMs whenever you like — your repo's brain and its decision graph stay put.
 
 ---
 

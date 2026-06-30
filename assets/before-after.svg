@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="410" viewBox="0 0 880 410" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace" role="img" aria-label="Before and after: a plain LLM versus an LLM with solana-brain installed, answering 'launch our token next month'">
+  <defs>
+    <linearGradient id="ba-sol" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/>
+    </linearGradient>
+  </defs>
+
+  <!-- BEFORE panel -->
+  <rect x="16" y="16" width="408" height="378" rx="12" fill="#0d1117" stroke="#f85149" stroke-width="1.5" opacity="0.97"/>
+  <text x="36" y="48" fill="#f85149" font-size="15" font-weight="700">✕  Plain LLM</text>
+  <line x1="32" y1="62" x2="408" y2="62" stroke="#30363d"/>
+  <text x="36" y="92" font-size="12.5"><tspan fill="#8b949e">› </tspan><tspan fill="#c9d1d9" font-style="italic">launch our token next month</tspan></text>
+  <g font-size="12.5">
+    <text x="36" y="130"><tspan fill="#f85149">  ✕  </tspan><tspan fill="#8b949e">Generic 10-step checklist, no context</tspan></text>
+    <text x="36" y="160"><tspan fill="#f85149">  ✕  </tspan><tspan fill="#8b949e">Forgets you chose Cayman + DE C-corp</tspan></text>
+    <text x="36" y="190"><tspan fill="#f85149">  ✕  </tspan><tspan fill="#8b949e">No audit gate — ships unaudited</tspan></text>
+    <text x="36" y="220"><tspan fill="#f85149">  ✕  </tspan><tspan fill="#8b949e">Re-asks your stack &amp; entity again</tspan></text>
+    <text x="36" y="250"><tspan fill="#f85149">  ✕  </tspan><tspan fill="#8b949e">Contradicts last week's decision</tspan></text>
+  </g>
+  <line x1="32" y1="300" x2="408" y2="300" stroke="#30363d"/>
+  <text x="36" y="328" fill="#f85149" font-size="12" font-style="italic">amnesiac · ungated · AI slop</text>
+
+  <!-- transform node -->
+  <circle cx="440" cy="205" r="16" fill="#161b22" stroke="#9945FF" stroke-width="1.5"/>
+  <text x="440" y="211" text-anchor="middle" fill="#14F195" font-size="16">→</text>
+
+  <!-- AFTER panel -->
+  <rect x="456" y="16" width="408" height="378" rx="12" fill="#0d1117" stroke="url(#ba-sol)" stroke-width="1.8"/>
+  <text x="476" y="48" font-size="15" font-weight="700"><tspan fill="#3fb950">✓  LLM + </tspan><tspan fill="#b692ff">solana-brain</tspan></text>
+  <line x1="472" y1="62" x2="848" y2="62" stroke="#30363d"/>
+  <text x="476" y="92" font-size="12.5"><tspan fill="#8b949e">› </tspan><tspan fill="#c9d1d9" font-style="italic">launch our token next month</tspan></text>
+  <g font-size="12.5">
+    <text x="476" y="130"><tspan fill="#3fb950">  ✓  </tspan><tspan fill="#e6edf3">Recall: Cayman + DE C-corp (0001)</tspan></text>
+    <text x="476" y="160"><tspan fill="#3fb950">  ✓  </tspan><tspan fill="#e6edf3">Routes BUILD→SECURE→OPERATE→GROW</tspan></text>
+    <text x="476" y="190"><tspan fill="#3fb950">  ✓  </tspan><tspan fill="#e6edf3">Gate: SECURE audit before launch</tspan></text>
+    <text x="476" y="220"><tspan fill="#3fb950">  ✓  </tspan><tspan fill="#e6edf3">Delegates to grow-lead + secure-lead</tspan></text>
+    <text x="476" y="250"><tspan fill="#3fb950">  ✓  </tspan><tspan fill="#e6edf3">Records the call → .solana-brain</tspan></text>
+  </g>
+  <line x1="472" y1="300" x2="848" y2="300" stroke="#30363d"/>
+  <text x="476" y="328" fill="#14F195" font-size="12" font-style="italic">remembers · gated · compounds every session</text>
+</svg>
