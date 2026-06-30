@@ -72,6 +72,7 @@ living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets
 - [Orchestration — the real edge](#orchestration--the-real-edge)
 - [Use it](#use-it)
 - [🧠 Your repo grows a brain](#-your-repo-grows-a-brain)
+- [🧬 It evolves — and it teaches you](#-it-evolves--and-it-teaches-you)
 - [Routes to the ecosystem (doesn't reinvent it)](#routes-to-the-ecosystem-doesnt-reinvent-it)
 - [Agents & commands](#agents--commands)
 - [Where it fits in the Solana AI Kit](#where-it-fits-in-the-solana-ai-kit)
@@ -363,6 +364,46 @@ slop and starts producing work consistent with everything decided before it.
 
 Surface it with [`/recall`](commands/recall.md); write it with [`/remember`](commands/remember.md).
 Full protocol: [`skill/references/memory.md`](skill/references/memory.md).
+
+---
+
+## 🧬 It evolves — and it teaches you
+
+Two disciplines run on top of every task — both designed to **fight AI slop, not add to it.**
+
+### Gets sharper every prompt — without hallucinating
+
+The brain improves over time, but **only from evidence.** After a verified task it can record one
+**grounded learning** to `.solana-brain/learnings.md`, and the bar is strict:
+
+- **No evidence, no entry.** A learning must cite a real artifact — an error message, a transaction
+  signature, a test/benchmark result, a PR, a `file:line`, or a dated primary-doc link. Can't cite it?
+  It isn't recorded.
+- **Confidence ladder.** New observation → `hypothesis` (flagged, never overrides a decision). A
+  definitive outcome or a second independent observation → `confirmed`. Contradicted → `superseded`,
+  never deleted.
+- **The skill never rewrites itself.** Evolution is *data in your repo's memory*, not mutation of the
+  skill's playbooks — bounded, auditable, key-safe. Recall reads these learnings before the next task,
+  so the brain **compounds instead of hallucinating.**
+
+`/evolve` captures or reviews them. Protocol: [`self-evolve.md`](skill/references/self-evolve.md).
+
+### Build it, then teach it
+
+The default AI workflow — **task → prompt → code → done → no understanding** — is **forbidden.** After
+the engineering work, the brain *also teaches it*, so building with AI grows your skills instead of
+hollowing them out. For everything that changed it answers:
+
+- **Why** it exists · **why this design** (and what alternatives were rejected) · the **tradeoffs**
+  (time, space, complexity, coupling, cost, CU/rent) · **what happens at scale** (10×, 1000×, 100M,
+  concurrency) · the **CS / Rust / systems principles** in play · **how a Staff engineer** would review it.
+
+It leads with the **Solana / Rust / Web3** concept lens — accounts & rent, PDAs/CPIs, compute units &
+fees, Sealevel parallelism & contention, Borsh vs zero-copy, ownership/lifetimes, `checked_*` math,
+security invariants — anchored to your actual diff, with real numbers.
+
+`/explain` ("teach me this", "deep dive", "learning report") triggers it on demand; it's automatic after
+engineering work. Protocol: [`teaching.md`](skill/references/teaching.md).
 
 ---
 

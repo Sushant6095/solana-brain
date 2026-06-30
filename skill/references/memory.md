@@ -24,13 +24,16 @@ Project-scoped, tool-agnostic, and git-trackable — separate from the read-only
 .solana-brain/
 ├── MEMORY.md            ← the index + current state. Recall reads this FIRST, every time.
 ├── profile.md           ← durable company facts (entity, jurisdictions, stack pins, token, custody)
+├── learnings.md         ← evidence-grounded learnings the brain evolves (recall reads this too)
 └── decisions/
       └── NNNN-slug.md    ← one ADR-style record per consequential / irreversible decision
 ```
 
 `MEMORY.md` is the working memory: a skimmable snapshot a fresh session can read in under 30 seconds to
 answer *"where are we, and what's already been decided?"* `profile.md` holds facts that change rarely.
-`decisions/` is the permanent record — append-only, never rewritten.
+`decisions/` is the permanent record — append-only, never rewritten. `learnings.md` is the **self-evolve**
+log — cited, confidence-tracked learnings the brain recalls and applies so it gets sharper every prompt;
+no evidence, no entry ([self-evolve.md](self-evolve.md)).
 
 ## Recall — before classifying
 

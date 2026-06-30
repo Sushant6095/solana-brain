@@ -18,7 +18,7 @@
 #   <target>/.claude/skills/solana-brain/   (skill/ + rules/ + memory protocol + CLAUDE.md)
 #   <target>/.claude/agents/*.md            (chief-of-staff + 5 cluster leads)
 #   <target>/.claude/commands/*.md          (/brain /company-setup /ship-it /launch-token /raise /incident /recall /remember)
-#   <target>/.solana-brain/                 (institutional memory — MEMORY.md, profile.md, decisions/)
+#   <target>/.solana-brain/                 (institutional memory — MEMORY.md, profile.md, learnings.md, decisions/)
 # …and appends the brain-first protocol to <target>/CLAUDE.md (project installs).
 #
 # No build step, no runtime dependencies. Read-only / key-safe — never asks for a key.
@@ -419,7 +419,7 @@ seed_memory() {
   if [ -e "$MEMORY_DIR" ]; then MEMORY_STATE="present"; return 0; fi
   mkdir -p "$MEMORY_DIR/decisions"
   # Copy each template file only if absent; stamp the install date into the <date> placeholders.
-  for rel in "MEMORY.md" "profile.md" "decisions/0000-template.md"; do
+  for rel in "MEMORY.md" "profile.md" "learnings.md" "decisions/0000-template.md"; do
     src="$tpl/$rel"; dst="$MEMORY_DIR/$rel"
     [ -f "$src" ] || continue
     [ -e "$dst" ] && continue

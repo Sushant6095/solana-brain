@@ -42,6 +42,18 @@ If the request is a **goal** rather than a task, route to [references/orchestrat
 | Raise / hackathon | GROW (narrative/demo) → OPERATE (data room, entity, SAFT) |
 | Respond to an incident | SECURE (triage/contain) → SHIP (mitigate/restore) → OPERATE (disclosure/counsel) |
 
+## Cross-cutting disciplines (every task)
+
+Two disciplines fire **on top of** routing — they aren't clusters:
+
+| Signal / phrasing | Discipline | Start |
+|---|---|---|
+| "explain what you built", "teach me this", "deep dive", "learning report", "why is it built this way" | **Teach** the change — why, tradeoffs, scale, principles (Solana/Rust/Web3) | [references/teaching.md](references/teaching.md) · [`/explain`](../commands/explain.md) |
+| "what did we learn", "evolve", "capture a learning", "review learnings" | **Evolve** — record a cited, grounded learning so the next prompt is sharper | [references/self-evolve.md](references/self-evolve.md) · [`/evolve`](../commands/evolve.md) |
+
+After engineering work the **Teach** discipline is automatic, not optional; **Evolve** fires when a
+verified task leaves cited evidence worth keeping (no evidence → no entry).
+
 ## Disambiguation rules
 
 - **Default to asking the brain, not guessing.** If a request could be two clusters, name both and

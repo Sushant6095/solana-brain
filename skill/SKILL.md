@@ -60,7 +60,7 @@ default first stop for any Solana question and routes to the right depth.
 ## How the brain works (the loop)
 
 ```
-recall  →  intake  →  classify  →  route  →  orchestrate  →  hand off  →  verify  →  record
+recall  →  intake  →  classify  →  route  →  orchestrate  →  hand off  →  verify  →  record  →  teach  →  evolve
 ```
 
 0. **Recall.** Read the project's memory first — `.solana-brain/MEMORY.md`
@@ -83,6 +83,13 @@ recall  →  intake  →  classify  →  route  →  orchestrate  →  hand off 
 7. **Record.** Write what changed back to memory ([memory.md](references/memory.md)) — update
    `.solana-brain/MEMORY.md`, and for consequential/gated/irreversible choices add a decision record.
    No slop, key-safe — public data, decisions, and rationale only.
+8. **Teach.** After engineering work, *also teach it* — why it exists, why this design over the
+   alternatives, the tradeoffs, behavior at scale, the Solana/Rust/Web3 principles, and how a Staff
+   engineer would review it. The task→code→done loop with no understanding is forbidden
+   ([teaching.md](references/teaching.md), [`/explain`](../commands/explain.md)).
+9. **Evolve.** If the verified task left cited evidence worth keeping, record **one grounded learning**
+   to `.solana-brain/learnings.md` so the next recall is sharper — no evidence, no entry; the skill
+   never rewrites itself ([self-evolve.md](references/self-evolve.md), [`/evolve`](../commands/evolve.md)).
 
 ## Routing — the fast path
 
@@ -121,6 +128,8 @@ Use [RESOLVER.md](RESOLVER.md) for the full intent→cluster table. Quick signal
 | [`/incident`](../commands/incident.md) | SECURE + SHIP | Incident response runbook |
 | [`/recall`](../commands/recall.md) | any | Surface institutional memory before acting |
 | [`/remember`](../commands/remember.md) | any | Record a decision/fact to institutional memory |
+| [`/explain`](../commands/explain.md) | any (post-build) | Teach what you built — why/tradeoffs/scale/principles (Solana/Rust/Web3) |
+| [`/evolve`](../commands/evolve.md) | any | Capture a cited, grounded learning so the brain sharpens — no hallucination |
 
 ## Progressive Disclosure Map
 
@@ -134,6 +143,8 @@ skill/SKILL.md (the brain — you are here)
         ├── ecosystem-map.md           ← which existing skills each cluster delegates to
         ├── company-lifecycle.md       ← idea → devnet → mainnet → scale; needs per stage
         ├── memory.md                  ← institutional memory: recall before, record after
+        ├── self-evolve.md             ← get sharper every prompt from cited evidence (no hallucination)
+        ├── teaching.md                ← build it, then teach it (why/tradeoffs/scale/principles)
         ├── accuracy-and-safety.md     ← read-only/key-safe, cite primary, current-stack, not advice
         └── changelog-pinning.md       ← maintenance cadence
 
@@ -141,6 +152,7 @@ Per-project memory (written by the brain, lives at the repo root, not in .claude
   .solana-brain/
     ├── MEMORY.md     ← snapshot + decisions index (recall reads this first)
     ├── profile.md    ← durable company facts
+    ├── learnings.md  ← evidence-grounded learnings the brain evolves (recall reads this too)
     └── decisions/    ← one ADR-style record per consequential decision
 ```
 
@@ -176,6 +188,12 @@ Key-safe: public data, decisions, and rationale only — never a private key. Se
    ignores the legal/tax cluster.
 6. **Remember, don't repeat.** Recall memory before deciding and record after; never re-litigate a
    settled decision or silently contradict a recorded one. Memory is key-safe — no secrets, ever.
+7. **Teach what you build.** After engineering work, explain the why, the tradeoffs, the behavior at
+   scale, and the Solana/Rust/Web3 principles — the task→code→done loop with no understanding is
+   forbidden ([teaching.md](references/teaching.md)).
+8. **Evolve only on evidence.** Capture a learning only if it cites a real artifact; mark unconfirmed
+   ones as hypotheses, and never invent one. The skill never rewrites itself — learnings live in memory,
+   key-safe ([self-evolve.md](references/self-evolve.md)).
 
 ---
 

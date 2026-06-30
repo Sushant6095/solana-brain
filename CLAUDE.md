@@ -25,6 +25,12 @@ a critical gate get skipped.
    specifics against primary docs.
 7. **Remember, don't repeat.** Recall before deciding, record after verifying; never re-litigate a
    settled decision. Memory is key-safe — public data and rationale only. (`skill/references/memory.md`)
+8. **Teach, don't just deliver.** After engineering work, explain the why, the design tradeoffs, the
+   behavior at scale, and the Solana/Rust/Web3 principles — the task→code→done loop is forbidden.
+   (`rules/teach-after-build.md`, `skill/references/teaching.md`, `/explain`)
+9. **Evolve only on evidence.** Get sharper every prompt by recording cited learnings to
+   `.solana-brain/learnings.md`; never invent one, and never rewrite the skill — learnings live in
+   memory. (`skill/references/self-evolve.md`, `/evolve`)
 
 ## Routing quick map
 
@@ -34,6 +40,8 @@ a critical gate get skipped.
 - token/GTM/community/raise → GROW (`skill/clusters/grow.md`) + SECURE + OPERATE
 - entity/tax/treasury/compliance/hiring → OPERATE (`skill/clusters/operate.md`)
 - "what did we decide"/"where were we"/record a decision → memory (`skill/references/memory.md`, `/recall`, `/remember`)
+- "explain what you built"/"teach me this"/"deep dive"/"learning report" → Teach (`skill/references/teaching.md`, `/explain`)
+- "what did we learn"/"evolve"/"capture a learning" → self-evolve (`skill/references/self-evolve.md`, `/evolve`)
 - a goal spanning several → `chief-of-staff` + `skill/references/orchestration.md`
 
 ## Two-strike rule
