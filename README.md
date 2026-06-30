@@ -33,7 +33,29 @@ skills**, and **remembers every decision** so it's never re-litigated.
 
 ---
 
+## ✅ Live on every channel
+
+> **All three install paths are published and verified end-to-end** against real infrastructure — the npm registry, a tagged GitHub release, and a Homebrew tap.
+
+| Channel | Command | Status |
+|---|---|---|
+| **curl** | `curl -fsSL …/install.sh \| bash` | ✅ live |
+| **npm** | `npx solana-brain` · `npm i -g solana-brain` | ✅ live |
+| **Homebrew** | `brew install Sushant6095/tap/solana-brain` | ✅ live |
+
+**Live links:** [📦 npm — npmjs.com/package/solana-brain](https://www.npmjs.com/package/solana-brain) · [🍺 Homebrew tap](https://github.com/Sushant6095/homebrew-tap) · [🏷 Release v0.2.0](https://github.com/Sushant6095/solana-brain/releases/tag/v0.2.0)
+
+<p align="center">
+  <img src="assets/terminal-demo.svg" alt="npx solana-brain onboarding a repo — provisions .claude/ and .solana-brain/ at the repo root" width="760">
+</p>
+
+> _Clean by design: `npm i solana-brain` in a fresh project adds **1 package · 0 dependencies · 0 vulnerabilities**._
+
+---
+
 ## Contents
+
+- [✅ Live on every channel](#-live-on-every-channel)
 
 - [The problem](#the-problem)
 - [⚡ Drop it into your repo — new project _or_ mid-flight](#-drop-it-into-your-repo--new-project-or-mid-flight)

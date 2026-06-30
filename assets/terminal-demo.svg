@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="500" viewBox="0 0 760 500" font-family="ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace" role="img" aria-label="Terminal screenshot: npx solana-brain onboarding a repository">
+  <defs>
+    <linearGradient id="sol" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9945FF"/>
+      <stop offset="1" stop-color="#14F195"/>
+    </linearGradient>
+  </defs>
+
+  <!-- window -->
+  <rect x="2" y="2" width="756" height="496" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  <!-- title bar -->
+  <path d="M2 14 a12 12 0 0 1 12 -12 h732 a12 12 0 0 1 12 12 v22 h-756 z" fill="#161b22"/>
+  <line x1="2" y1="36" x2="758" y2="36" stroke="#30363d" stroke-width="1"/>
+  <circle cx="24" cy="19" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="19" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="19" r="6" fill="#27c93f"/>
+  <text x="380" y="23" text-anchor="middle" fill="#8b949e" font-size="12">solana-brain — zsh</text>
+
+  <!-- body -->
+  <g font-size="13.2" xml:space="preserve">
+    <text x="18" y="62"><tspan fill="#3fb950">vyapar@mba</tspan><tspan fill="#58a6ff"> ~/my-solana-app</tspan><tspan fill="#8b949e"> %</tspan><tspan fill="#e6edf3"> npx solana-brain</tspan></text>
+
+    <text x="18" y="100"><tspan fill="#3fb950">  ✓ </tspan><tspan fill="#8b949e">Fetched solana-brain source</tspan></text>
+
+    <text x="18" y="119" fill="url(#sol)">  ███████╗ ██████╗ ██╗      █████╗ ███╗   ██╗ █████╗ </text>
+    <text x="18" y="138" fill="url(#sol)">  ██╔════╝██╔═══██╗██║     ██╔══██╗████╗  ██║██╔══██╗</text>
+    <text x="18" y="157" fill="url(#sol)">  ███████╗██║   ██║██║     ███████║██╔██╗ ██║███████║</text>
+    <text x="18" y="176" fill="url(#sol)">  ╚════██║██║   ██║██║     ██╔══██║██║╚██╗██║██╔══██║</text>
+    <text x="18" y="195" fill="url(#sol)">  ███████║╚██████╔╝███████╗██║  ██║██║ ╚████║██║  ██║</text>
+    <text x="18" y="214" fill="url(#sol)">  ╚══════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝</text>
+
+    <text x="18" y="233"><tspan fill="#14F195">  ◎ brain</tspan><tspan fill="#8b949e">   the chief-of-staff for an entire Solana company</tspan></text>
+
+    <text x="18" y="271"><tspan fill="#9945FF">  ▌ </tspan><tspan fill="#e6edf3">PROVISIONING</tspan></text>
+    <text x="18" y="290"><tspan fill="#3fb950">  ✓ </tspan><tspan fill="#e6edf3">Brain installed</tspan><tspan fill="#8b949e">          5 clusters · 5 playbooks · resolver</tspan></text>
+    <text x="18" y="309"><tspan fill="#3fb950">  ✓ </tspan><tspan fill="#e6edf3">Executive team onboarded</tspan><tspan fill="#8b949e"> 6 agents</tspan></text>
+    <text x="18" y="328"><tspan fill="#3fb950">  ✓ </tspan><tspan fill="#e6edf3">Command console wired</tspan><tspan fill="#8b949e">    8 commands</tspan></text>
+    <text x="18" y="347"><tspan fill="#3fb950">  ✓ </tspan><tspan fill="#e6edf3">Institutional memory online</tspan><tspan fill="#8b949e">  .solana-brain</tspan></text>
+
+    <text x="18" y="385" fill="#3fb950">  ╭────────────────────────────────────────────────╮</text>
+    <text x="18" y="404"><tspan fill="#3fb950">  │</tspan><tspan fill="#e6edf3"> solana-brain v0.2.0  ·  onboarded</tspan><tspan fill="#3fb950">              │</tspan></text>
+    <text x="18" y="423" fill="#3fb950">  ╰────────────────────────────────────────────────╯</text>
+
+    <text x="18" y="461"><tspan fill="#3fb950">  ✓ </tspan><tspan fill="#8b949e">read-only · key-safe — your wallet signs.</tspan></text>
+  </g>
+</svg>
