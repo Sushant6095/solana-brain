@@ -178,11 +178,9 @@ commands, and a memory format. **No binary, no MCP server, no per-agent plugins 
 the point: it's model- and tool-agnostic, and the same `.solana-brain/` memory is readable by every agent
 (and by you, and by Obsidian).
 
-| Tier | Agents | How solana-brain loads |
-|---|---|---|
-| **Native — auto-wired** | Claude Code | `.claude/skills/solana-brain/` + `/commands` + `agents/` + the brain-first block in `CLAUDE.md` — the installer sets all of it up |
-| **Convention files** | Codex · Cursor · Cline · Windsurf · Roo Code · Kilo Code · Gemini CLI · GitHub Copilot CLI · Aider · Goose | reads the brain-first protocol the installer appends to `CLAUDE.md` / `AGENTS.md` (or point it at `SKILL.md` if your agent uses a different rules file) |
-| **Any other LLM** | GPT · Gemini · Llama · Claude Desktop · Warp · … | point the model at [`skill/SKILL.md`](skill/SKILL.md) as context — it routes the same way |
+<p align="center">
+  <img src="assets/works-with.svg" alt="Works with every agent — Claude Code natively; Codex, Cursor, Cline, Windsurf, Roo Code, Kilo Code, Gemini CLI, Copilot CLI, Aider, Goose via CLAUDE.md/AGENTS.md; any other LLM (GPT, Gemini, Llama, Claude Desktop, Warp) by pointing it at SKILL.md" width="900">
+</p>
 
 **One brain, any model.** Swap LLMs whenever you like — your repo's brain and its decision graph stay
 put. There's no MCP server or hooks to misconfigure; it's just markdown the agent reads.
