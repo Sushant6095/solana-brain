@@ -9,8 +9,8 @@ Owns getting code to mainnet and keeping it up. Current as of 2026-06.
 
 ## Scope
 
-- **RPC & infra:** read RPC, a stake-weighted-QoS **send** path, and a **stream** endpoint (often three different endpoints); provider selection (Helius/QuickNode/Triton).
-- **Deploy:** program deploy/upgrade (buffer accounts, upgrade authority via **multisig**), client/app deploy (Cloudflare/Vercel), environment + secrets hygiene.
+- **RPC & infra:** read RPC, a stake-weighted-QoS (**SWQoS**) **send** path, and a **stream** endpoint — often three different endpoints. SWQoS reserves ~80% of leader TPU capacity for staked submitters; use a named send product: **Helius Sender / Dedicated Staked Connections**, **QuickNode Transaction Fastlane (+Lil'JIT)**, or **Triton** staked connections (self-hosted: `--rpc-send-transaction-tpu-peer`). Don't send over a shared read RPC.
+- **Deploy:** program deploy/upgrade (buffer accounts, upgrade authority via a **Squads multisig**) with a **verified build** (`solana-verify`: deterministic Docker build → on-chain verify PDA binding program address + git URL + commit hash; verified status on OtterSec/Explorer). Client/app deploy (Cloudflare/Vercel), environment + secrets hygiene.
 - **CI/CD:** build/test/deploy pipelines; devnet-first, mainnet-gated.
 - **Observability & on-call:** monitoring, alerting, land-rate/slot-lag dashboards, incident readiness, rollback plans.
 
@@ -32,7 +32,7 @@ Owns getting code to mainnet and keeping it up. Current as of 2026-06.
 
 ## Verification gate (before "shipped")
 
-- Mainnet deploy reproducible; upgrade authority multisig-controlled; rollback rehearsed.
+- Mainnet deploy reproducible — **verified build hash matches on-chain** (`solana-verify`); upgrade authority multisig-controlled; rollback rehearsed.
 - Monitoring + alerts live (RPC health, land rate, error spikes); on-call path defined.
 - Incident runbook exists ([`/incident`](../../commands/incident.md)).
 

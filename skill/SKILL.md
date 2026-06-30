@@ -145,7 +145,7 @@ Use [RESOLVER.md](RESOLVER.md) for the full intent→cluster table. Quick signal
 | [`/brain`](../commands/brain.md) | any | Universal entry — intake + route to the right cluster(s) |
 | [`/company-setup`](../commands/company-setup.md) | OPERATE + BUILD | 0→1: entity, repo, environments, baseline |
 | [`/ship-it`](../commands/ship-it.md) | BUILD + SHIP + SECURE | Mainnet-readiness gate → deploy |
-| [`/launch-token`](../commands/launch-token.md) | BUILD + SECURE + GROW + OPERATE | End-to-end token launch with gates |
+| [`/launch-token`](../commands/launch-token.md) | BUILD + SECURE + SHIP + GROW + OPERATE | End-to-end token launch with gates |
 | [`/raise`](../commands/raise.md) | GROW + OPERATE | Fundraising / hackathon / grant prep |
 | [`/incident`](../commands/incident.md) | SECURE + SHIP | Incident response runbook |
 | [`/recall`](../commands/recall.md) | any | Surface institutional memory before acting |

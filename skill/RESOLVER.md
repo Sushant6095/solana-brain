@@ -38,7 +38,7 @@ If the request is a **goal** rather than a task, route to [references/orchestrat
 |---|---|
 | Start a company (0→1) | OPERATE (entity) → BUILD (repo/baseline) → SHIP (envs) |
 | Ship to mainnet | BUILD → SECURE (audit gate) → SHIP (deploy) |
-| Launch a token | BUILD (mint/program) → SECURE (audit) → OPERATE (legal/tax) → GROW (TGE/GTM) |
+| Launch a token | BUILD (mint/program) → SECURE (audit) → SHIP (deploy mint+claim, RPC/monitoring for the claim window) → OPERATE (legal/tax) → GROW (TGE/GTM) |
 | Raise / hackathon | GROW (narrative/demo) → OPERATE (data room, entity, SAFT) |
 | Respond to an incident | SECURE (triage/contain) → SHIP (mitigate/restore) → OPERATE (disclosure/counsel) |
 

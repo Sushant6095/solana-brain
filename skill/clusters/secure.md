@@ -16,6 +16,24 @@ across program, client, and operations. Current as of 2026-06.
 - **Supply chain / AppSec:** dependencies, secrets, CI/CD, LLM/skill safety.
 - **Incident response:** triage → contain → preserve evidence → mitigate → disclose.
 
+## The invariant checklist (the brain's audit rubric)
+
+Every program review checks these — name the **guard**, not just the risk:
+
+| Invariant | Guard |
+|---|---|
+| Signer authority | `is_signer` / Anchor `Signer<'info>` on every privileged account |
+| Account ownership | `account.owner == program_id` before trusting any account's data |
+| Type / discriminator confusion | verify the 8-byte discriminator; no account-type punning |
+| PDA correctness | derive and verify the **canonical bump**; never trust a passed-in bump |
+| Integer overflow | `checked_*` math / `overflow-checks = true` — a silent wrap is a bug |
+| Arbitrary CPI | verify the target `program_id` before `invoke` |
+| Reinitialization | use `init` (not unguarded `init_if_needed`); guard re-init |
+| Duplicate mutable accounts | reject the same account passed twice to net a balance check |
+| Account closing | zero the data + reassign lamports; prevent account revival |
+
+Depth → `trailofbits` / `sendai` (vulnhunter, code-recon) / `qedgen` (Lean 4 formal verification).
+
 ## Decide
 
 | If the task is… | Then |
@@ -36,9 +54,9 @@ across program, client, and operations. Current as of 2026-06.
 
 ## Verification gate
 
-- Findings resolved or explicitly risk-accepted by an owner.
-- Custody plan documented (who holds upgrade/treasury authority, multisig threshold).
-- For client UX: drainer-safe approval flow with human-readable preview.
+- Program passes the **invariant checklist** above (or each gap explicitly risk-accepted by an owner).
+- Custody plan documented: upgrade + treasury authority behind a **Squads multisig**, threshold set, signers isolated from agents.
+- Client UX: drainer-safe approval — **ALT-resolved, human-readable preview**, optional **Lighthouse assertion** instructions, no silent auto-approve. Simulation is necessary, not sufficient.
 
 ## Hand off to
 

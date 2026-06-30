@@ -10,9 +10,9 @@ between program and user. Current as of 2026-06.
 
 ## Scope
 
-- **Programs:** Anchor / Pinocchio, account & PDA design, IDL/codegen, Token-2022 extensions, testing (LiteSVM/Mollusk).
-- **Client apps:** the production client layer — transactions that **land** (compute budget, priority fees, Jito, durable nonces, rebroadcast/confirm), are **safe** to sign (simulation + drainer detection), **distribute** (Actions/Blinks), and **stream** in realtime (Yellowstone gRPC / LaserStream). Frontends + wallet UX.
-- **Default stack (2026):** `@solana/kit`, Anchor/Pinocchio, Next.js + wallet adapter / MWA.
+- **Programs:** Anchor / Pinocchio, account & PDA design, **Codama**-generated clients (consume the Anchor IDL → typed `@solana/kit` clients; not legacy solita/anchor-client-gen), Token-2022 extensions, testing (**LiteSVM** unit · **Mollusk** CU-benchmarks · **Surfpool** mainnet-fork integration).
+- **Client apps:** the production client layer — transactions that **land** (see the canonical path below), are **safe** to sign (simulation + drainer detection), **distribute** (Actions/Blinks), and **stream** in realtime (Yellowstone gRPC / LaserStream). Frontends + wallet UX.
+- **Default stack (2026):** `@solana/kit` for client/RPC · **framework-kit** (`@solana/client` + `@solana/react-hooks`) for UI · **wallet-standard-first** connection (e.g. ConnectorKit), wallet-adapter only as legacy compat · Anchor/Pinocchio for programs · MWA for mobile · `@solana/web3-compat` only at legacy v1 boundaries.
 
 ## Decide
 
@@ -25,6 +25,20 @@ between program and user. Current as of 2026-06.
 | Porting from EVM | Delegate to `eth-to-sol` |
 
 See [ecosystem-map.md](../references/ecosystem-map.md) for the full delegation table.
+
+## Make transactions land (the canonical path)
+
+"Txs won't land" at peak is the #1 client question — answer with this order, not a guess:
+
+1. **Simulate** (`simulateTransaction`) to measure the compute units actually used.
+2. **Set both ComputeBudget instructions** (required together): `SetComputeUnitLimit` = measured CU + ~10% headroom, and `SetComputeUnitPrice` (the priority fee).
+3. **Price the fee from live data**, never hardcoded — `getRecentPrioritizationFees` (p75–p90) or Helius `getPriorityFeeEstimate`; re-price as congestion moves.
+4. **Fresh blockhash** right before send; track `lastValidBlockHeight` for expiry.
+5. **Send** `skipPreflight: true` (after a clean sim) with `maxRetries: 0`, and run your **own rebroadcast loop** of the *same signed tx* until confirmed or the blockhash expires (rebroadcast, don't re-sign).
+6. **Contested inclusion** → Jito tip + bundle to a Block Engine region. **Offline/queued signing** → durable nonce (`nonceAdvance` as the *first* instruction).
+7. **Send over a stake-weighted (SWQoS) endpoint** (SHIP), not a shared read RPC.
+
+Acceptance: a measured **land rate over N sends** at the target commitment — not "it worked once." Depth → **`solana-client-layer`**.
 
 ## Build discipline
 

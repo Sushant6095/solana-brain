@@ -17,6 +17,17 @@ acting.** Current as of 2026-06.
 - **Treasury:** custody (multisig), runway, stablecoin management, reconciliation.
 - **Hiring/finance:** contractors, token comp, cap table basics.
 
+## Is the token a security? (apply the framework — informational, not advice)
+
+Structure the analysis; don't just say "ask counsel":
+
+- **US — the Howey test** (four prongs): (1) investment of money, (2) in a common enterprise, (3) with an expectation of profit, (4) derived from the efforts of others. *Raises* risk: pre-sale to investors, profit/price marketing, centralized roadmap-driven value. *Lowers* it: genuine present utility, decentralized control, no profit messaging. Institutional vs. programmatic sales can be treated differently (cf. *SEC v. Ripple*).
+- **EU — MiCA:** CASP authorization + white-paper obligations for public offers.
+- **Sanctions / geo:** OFAC screening and geo-fencing of **both** the sale and the claim.
+- **Tax at receipt:** often taxable as income when received (US); India = 30% VDA + 1% TDS, no loss set-off.
+
+**Entity split (prevailing):** **Delaware C-corp** DevCo (VC equity, QSBS, IP) **+ Cayman foundation** as the token issuer (separates token from the company); **Wyoming DAO LLC** for on-chain governance. Delegate to `crypto-legal`; flag counsel + CPA.
+
 ## Decide
 
 | If the task is… | Then |
