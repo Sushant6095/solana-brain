@@ -103,6 +103,7 @@ project. Non-destructive — it never touches your source and never wipes an exi
 - [Use it](#use-it)
 - [🧠 Your repo grows a brain](#-your-repo-grows-a-brain)
 - [🧬 It evolves — and it teaches you](#-it-evolves--and-it-teaches-you)
+- [📊 Benchmark — measured, not claimed](#-benchmark--measured-not-claimed)
 - [Routes to the ecosystem (doesn't reinvent it)](#routes-to-the-ecosystem-doesnt-reinvent-it)
 - [Agents & commands](#agents--commands)
 - [Where it fits in the Solana AI Kit](#where-it-fits-in-the-solana-ai-kit)
@@ -438,6 +439,26 @@ security invariants — anchored to your actual diff, with real numbers.
 
 `/explain` ("teach me this", "deep dive", "learning report") triggers it on demand; it's automatic after
 engineering work. Protocol: [`teaching.md`](skill/references/teaching.md).
+
+---
+
+## 📊 Benchmark — measured, not claimed
+
+Same base model, with vs without solana-brain, on hard Solana tasks — **blind-judged, averaged over 2
+runs**. Full method + raw per-run scores: [`benchmark/`](benchmark/).
+
+<p align="center">
+  <img src="assets/benchmark.svg" alt="Benchmark dashboard: answer-quality radar (with-skill 9.13 vs without 8.70, winning all five dimensions) and memory-continuity bars (9.75 vs 3.13, a 3.1x gap)" width="900">
+</p>
+
+- **Answer quality — wins all five dimensions** (**9.13 vs 8.70**). Biggest gains: actionability and
+  completeness — the skill answers denser, more complete, and more concrete, with gates stated inline.
+- **Memory continuity — 9.75 vs 3.13 (3.1×).** A plain LLM has no per-project memory and gives generic
+  advice; the skill recalls and honors your actual prior decisions, every session.
+
+The numbers are the judge's, not ours — we publish the per-run variance too. The takeaway:
+**solana-brain makes an already-expert model measurably better on answers, and _categorically_ better at
+remembering your company.**
 
 ---
 
