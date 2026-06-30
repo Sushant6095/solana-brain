@@ -73,6 +73,7 @@ living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets
 - [Use it](#use-it)
 - [🧠 Your repo grows a brain](#-your-repo-grows-a-brain)
 - [🧬 It evolves — and it teaches you](#-it-evolves--and-it-teaches-you)
+- [📊 Benchmark — measured, not claimed](#-benchmark--measured-not-claimed)
 - [Routes to the ecosystem (doesn't reinvent it)](#routes-to-the-ecosystem-doesnt-reinvent-it)
 - [Agents & commands](#agents--commands)
 - [Where it fits in the Solana AI Kit](#where-it-fits-in-the-solana-ai-kit)
@@ -404,6 +405,36 @@ security invariants — anchored to your actual diff, with real numbers.
 
 `/explain` ("teach me this", "deep dive", "learning report") triggers it on demand; it's automatic after
 engineering work. Protocol: [`teaching.md`](skill/references/teaching.md).
+
+---
+
+## 📊 Benchmark — measured, not claimed
+
+We A/B-tested the **same base model** with and without solana-brain on hard Solana tasks, scored by a
+blind judge. Full method, raw answers, and scores: [`benchmark/`](benchmark/).
+
+**Memory continuity — the real install benefit.** Inside a project with established prior decisions, ask
+what to do next:
+
+<p align="center">
+  <img src="assets/benchmark-continuity.svg" alt="Memory continuity: without solana-brain 3.5/10, with solana-brain 9.0/10" width="620">
+</p>
+
+Without the skill the model has **no per-project memory** and gives generic advice (**3.5/10**). With it,
+the model **recalls and honors the project's actual decisions** — Anchor, the OtterSec audit-before-mainnet
+policy, the Squads 3-of-5 upgrade authority — and refuses to contradict a settled one (**9.0/10 — 2.6×**).
+
+**Raw answer quality — honest parity.** On one-shot questions an already-expert base model has little
+headroom, so the skill *matches* it (and ties on gate-discipline) rather than beating it:
+
+<p align="center">
+  <img src="assets/benchmark-quality.svg" alt="Answer quality across five dimensions: parity, both around 8-9 out of 10" width="760">
+</p>
+
+We publish **everything** — including an earlier [v1 round](benchmark/) where the skill came out flat —
+because a benchmark you can't trust is worthless. The takeaway is honest and specific: **solana-brain
+doesn't make the model smarter on facts; it makes it remember your company — and that compounds across
+every session.**
 
 ---
 
