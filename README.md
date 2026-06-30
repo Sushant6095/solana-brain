@@ -10,6 +10,9 @@ router** that classifies any request, sends it to the right one of five clusters
 cross-functional work with non-negotiable gates, **delegates depth to the best existing ecosystem
 skills**, and **remembers every decision** so it's never re-litigated.
 
+**Drop it in and your repo grows a brain** — every consequential decision becomes a connected node in a
+living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets sharper the more you build.
+
 <br/>
 
 ![version](https://img.shields.io/badge/version-0.2.0-9945FF?style=for-the-badge)
@@ -58,6 +61,7 @@ skills**, and **remembers every decision** so it's never re-litigated.
 - [✅ Live on every channel](#-live-on-every-channel)
 
 - [The problem](#the-problem)
+- [Why every Solana dev & founder needs it](#why-every-solana-dev--founder-needs-it)
 - [⚡ Drop it into your repo — new project _or_ mid-flight](#-drop-it-into-your-repo--new-project-or-mid-flight)
 - [Install](#install)
 - [What lands in your repo](#what-lands-in-your-repo)
@@ -65,7 +69,7 @@ skills**, and **remembers every decision** so it's never re-litigated.
 - [How the brain works](#how-the-brain-works-the-loop)
 - [Orchestration — the real edge](#orchestration--the-real-edge)
 - [Use it](#use-it)
-- [🧠 Institutional memory](#-institutional-memory)
+- [🧠 Your repo grows a brain](#-your-repo-grows-a-brain)
 - [Routes to the ecosystem (doesn't reinvent it)](#routes-to-the-ecosystem-doesnt-reinvent-it)
 - [Agents & commands](#agents--commands)
 - [Where it fits in the Solana AI Kit](#where-it-fits-in-the-solana-ai-kit)
@@ -90,6 +94,29 @@ whole company**, **in what order**, **with which gate**, **remembering what you 
 
 That's the gap solana-brain fills. It's the connective tissue specialists don't provide:
 **classification + sequencing + gates + verification + memory.**
+
+---
+
+## Why every Solana dev & founder needs it
+
+Solana is a five-front job — build, ship, secure, grow, operate — usually fought by a tiny team, often
+**one founder wearing all five hats** while pair-programming with an AI that forgets everything between
+sessions. That amnesia is where **AI slop** comes from: an agent with no memory of your decisions
+improvises, repeats work, and contradicts itself.
+
+solana-brain is the layer that fixes it:
+
+- **Less slop, more signal.** The agent recalls your *actual* decisions before it acts — so it stops
+  re-deriving the entity, re-litigating the stack, and quietly walking back the audit.
+- **It gets better every day.** Every recorded decision makes the next session sharper. The
+  intelligence **compounds with your repo** instead of resetting each morning.
+- **Nothing critical gets skipped.** Gates are enforced — SECURE before you ship, OPERATE before you
+  launch a token — not left to luck.
+- **It meets you where you are.** Fresh repo or 50k-line codebase: one command at the root,
+  non-destructive, zero dependencies, read-only / key-safe.
+
+If you build or operate anything on Solana with a coding agent, this is the layer that makes that agent
+**trustworthy over time** — and it installs in one command.
 
 ---
 
@@ -258,18 +285,45 @@ It **recalls** the project's memory before routing and **records** every decisio
 
 ---
 
-## 🧠 Institutional memory
+## 🧠 Your repo grows a brain
 
-A chief-of-staff who forgets last week is useless. solana-brain keeps **per-project memory** so every
-decision and gate survives across sessions — and is **never re-litigated**.
+Most coding agents are brilliant and **amnesiac** — every session they re-derive your entity, re-litigate
+the RPC choice, and quietly contradict last week's audit call. solana-brain fixes that at the root: it
+**captures every consequential decision as a node** and wires those nodes into a graph that lives in your
+repo.
 
-- **Recall before routing, record after verifying.** The loop is `recall → … → verify → record`.
-- **Lives at `.solana-brain/`** at your repo root — git-trackable and tool-agnostic, deliberately
-  _not_ buried in `.claude/`: a skimmable `MEMORY.md` snapshot, durable `profile.md` facts, and
-  ADR-style `decisions/`.
-- **No slop.** Entries are factual, dated, and specific. Decisions are _superseded_, never silently
-  overwritten — and the installer **never wipes** an existing `.solana-brain/`.
-- **Key-safe.** Public keys, program IDs, decisions, and rationale only — never a private key or seed.
+**Recall before routing, record after verifying** — the loop is
+`recall → classify → route → orchestrate → verify → record`. Each consequential, gated, or irreversible
+call becomes an append-only ADR node in `.solana-brain/decisions/`, indexed in `MEMORY.md`, and connected
+to the calls it supersedes with Obsidian-style `[[wikilinks]]`:
+
+```mermaid
+flowchart TD
+  M(["🧠 MEMORY.md — current state + decision index"])
+  M --- D1["0001 · OPERATE<br/>Cayman + DE C-corp"]
+  M --- D2["0002 · BUILD<br/>Anchor + PDA model"]
+  M --- D3["0003 · SECURE<br/>audit passed ✓"]
+  M --- D4["0004 · GROW<br/>token launch plan"]
+  D1 -->|"entity gate"| D4
+  D2 -->|"hardened by"| D3
+  D3 -->|"clears gate"| D4
+  D5["0005 · GROW<br/>revised vesting"] -.->|"supersedes"| D4
+  M --- D5
+  classDef node fill:#0d1117,stroke:#9945FF,color:#e6edf3;
+  classDef hub fill:#0d1117,stroke:#14F195,color:#14F195,stroke-width:2px;
+  class D1,D2,D3,D4,D5 node
+  class M hub
+```
+
+Because it's **plain markdown with `[[wikilinks]]`**, `.solana-brain/` literally *is* an
+[Obsidian](https://obsidian.md)-ready vault — open the folder and your company's decisions render as a
+navigable graph: every call a node, every supersession an edge. It's git-trackable, tool-agnostic, and
+**key-safe** (public keys, program IDs, decisions, and rationale only — never a private key or seed). The
+installer **never wipes** an existing `.solana-brain/`; decisions are _superseded_, never overwritten.
+
+**The payoff: your AI compounds.** Week one it's a router. By month three it's an operator that already
+knows your entity, your stack, your audit status, and *why* every call was made — so it stops producing
+slop and starts producing work consistent with everything decided before it.
 
 Surface it with [`/recall`](commands/recall.md); write it with [`/remember`](commands/remember.md).
 Full protocol: [`skill/references/memory.md`](skill/references/memory.md).
