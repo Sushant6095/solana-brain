@@ -69,6 +69,7 @@ skills**, and **remembers every decision** so it's never re-litigated.
 - [Routes to the ecosystem (doesn't reinvent it)](#routes-to-the-ecosystem-doesnt-reinvent-it)
 - [Agents & commands](#agents--commands)
 - [Where it fits in the Solana AI Kit](#where-it-fits-in-the-solana-ai-kit)
+- [🔌 For Solana AI Kit maintainers](#-for-solana-ai-kit-maintainers)
 - [Repository structure](#repository-structure)
 - [Safety model](#safety-model)
 - [Versioning · Compatibility · Uninstall](#versioning--compatibility--uninstall)
@@ -344,6 +345,25 @@ entry point that routes to focused `.md` files (progressive, token-efficient loa
   npx, global, brew), read-only/key-safe, current to the 2026-06 stack, no shady executables.
 - ✅ **Fit** — matches the kit's `SKILL.md`-routing structure, MIT-licensed, ready to be merged or
   submoduled.
+
+---
+
+## 🔌 For Solana AI Kit maintainers
+
+If solana-brain earns a slot in the kit, adding it is **one submodule** — it's wired exactly like the
+existing `.claude/skills/ext/*` skills, and uses the same `skill/SKILL.md` layout as the reference
+`solana-game-skill`:
+
+```bash
+git submodule add https://github.com/Sushant6095/solana-brain.git .claude/skills/ext/solana-brain
+```
+
+Because the brain **routes to** the kit's existing `ext/` skills (`solana-dev`, `helius`, `jupiter`,
+`metaplex`, `trailofbits`, `qedgen`, `colosseum`, `solana-new`, …) instead of duplicating them, merging
+it adds **no overlap** — it becomes the orchestration + memory layer on top of what's already there.
+
+**Full step-by-step** — submodule wiring, an optional `skill-registry.json` entry, the cluster → `ext/`
+delegation map, and how to pin/update — lives in **[INTEGRATION.md](INTEGRATION.md)**.
 
 ---
 
