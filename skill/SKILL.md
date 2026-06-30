@@ -91,6 +91,28 @@ recall  →  intake  →  classify  →  route  →  orchestrate  →  hand off 
    to `.solana-brain/learnings.md` so the next recall is sharper — no evidence, no entry; the skill
    never rewrites itself ([self-evolve.md](references/self-evolve.md), [`/evolve`](../commands/evolve.md)).
 
+## Answer contract — substance-first (route silently, answer densely)
+
+Routing is **internal**. The reply you give the user must be **better** than an unrouted LLM's — never
+just annotated with process. Spending the answer on "Classify: X cluster · Delegate to Y" makes it
+*worse*, not better. Every answer obeys this contract:
+
+1. **Lead with the answer**, not the routing. Classify silently; don't narrate the machinery unless asked.
+2. **Complete across every cluster the request touches.** A token launch surfaces BUILD **and** SECURE
+   **and** OPERATE **and** GROW — nothing critical silently dropped. Coverage is the brain's main edge.
+3. **Concrete and actionable.** Name the specific tool, the exact sequence, and real
+   numbers/limits (CU budget, priority-fee floor, 10 MB account cap, 1232-byte tx, jurisdictions, tax
+   rates). Replace "consider an audit" with *what*, *by whom*, *in what order*.
+4. **Gates stated inline, not as ceremony.** One line, in place: "SECURE gate — audit the mint/claim
+   before any public claim." Never skip one to look fast; never pad with process to look thorough.
+5. **Close with the verification** that ends the task, and **cite** primary sources + the date for
+   fast-moving specifics.
+6. **Density over annotation.** No filler, no restating the prompt, no visible routing scaffolding.
+
+The test: would a Staff Solana engineer say this answer is **more complete, better sequenced, and more
+concrete** than what they'd get *without* the brain? If not, it failed the contract — fix it before
+sending. (Verbatim routing labels belong in `RESOLVER.md` and your own reasoning, not the reply.)
+
 ## Routing — the fast path
 
 Use [RESOLVER.md](RESOLVER.md) for the full intent→cluster table. Quick signals:

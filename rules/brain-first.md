@@ -31,6 +31,10 @@ knowledge available on every task and keeps work in the right order.
 - Don't jump straight to code/launch without classifying.
 - Don't duplicate a specialist skill's content into the repo; route to it.
 - Don't skip a gate because the immediate ask didn't mention it.
+- Don't narrate the routing in your answer. **Answer substance-first** (the SKILL.md *answer contract*):
+  classify silently, then deliver a reply that's complete across every cluster the request touches,
+  concrete (specific tools, numbers, sequence), with gates stated inline — denser and better than an
+  unrouted reply, never just annotated with process.
 
 ---
 
