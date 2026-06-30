@@ -49,7 +49,7 @@ living, Obsidian-ready knowledge graph, so your AI stops producing slop and gets
 **Live links:** [📦 npm — npmjs.com/package/solana-brain](https://www.npmjs.com/package/solana-brain) · [🍺 Homebrew tap](https://github.com/Sushant6095/homebrew-tap) · [🏷 Release v0.2.0](https://github.com/Sushant6095/solana-brain/releases/tag/v0.2.0)
 
 <p align="center">
-  <img src="assets/terminal-demo.svg" alt="npx solana-brain onboarding a repo — provisions .claude/ and .solana-brain/ at the repo root" width="760">
+  <img src="assets/onboarding.png" alt="npx solana-brain onboarding a repo — the branded install that provisions .claude/ and .solana-brain/ at the repo root" width="820">
 </p>
 
 > _Clean by design: `npm i solana-brain` in a fresh project adds **1 package · 0 dependencies · 0 vulnerabilities**._
